@@ -1,0 +1,18 @@
+<project name="Landing-page" default="deploy" basedir=".">
+
+    <!-- Define the properties used by the build -->
+    <property name="app.name"      value="Landing"/>
+    <property name="web.dir"      value="${basedir}/public_html"/>
+    <property name="container.dir"      value="C:\Apache24\htdocs\"/>
+
+    <target name="deploy"
+            description="Deploy files to web-service">
+        <delete failonerror="false">
+            <fileset dir="${container.dir}/${app.name}" includes="**/*" />
+        </delete>
+        <copy  todir="${container.dir}/${app.name}">
+            <fileset dir="${web.dir}" includes="**/*"/>
+        </copy>
+    </target>
+
+</project>
